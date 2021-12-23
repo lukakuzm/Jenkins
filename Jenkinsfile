@@ -11,7 +11,9 @@ pipeline {
     }
     stage("stage 2") {
       steps {
-        powershell 'Get-Random' 
+        script {
+           params.randomNumber = powershell('Get-Random')
+        } 
       }
     }
     stage("stage 3") {
@@ -21,7 +23,7 @@ pipeline {
     }
     stage("stage 4") {
       steps {
-        echo 'stage 4'
+        echo "Random generated number from stage 2: ${params.randomNumber}"
       }
     }
   }
