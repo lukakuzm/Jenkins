@@ -12,7 +12,7 @@ pipeline {
     stage("stage 2") {
       steps {
         script {
-          sh 'echo "Get-Random"'
+          sh './powershell/generateNumber.sh'
         }
       }
     }
