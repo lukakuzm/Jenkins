@@ -18,7 +18,9 @@ pipeline {
     }
     stage("stage 3") {
       steps {
-        echo 'stage 3'
+        script {
+          showFreeSpace('aaa') 
+        }
       }
     }
     stage("stage 4") {
@@ -27,4 +29,8 @@ pipeline {
       }
     }
   }
+}
+
+def showFreeSpace(String a) {
+        echo a
 }
