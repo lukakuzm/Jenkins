@@ -1,7 +1,7 @@
 pipeline {
   agent any
-  parameters {
-    string(name: 'randomNumber', defaultValue: '', description: 'random generated number')
+  environment {
+    RANDOM_NUMBER = ''
   }
   stages {
     stage("stage 1") {
@@ -12,7 +12,8 @@ pipeline {
     stage("stage 2") {
       steps {
         script {
-          sh "Get-Random"
+          powershell: |
+            get-random
         } 
       }
     }
@@ -23,7 +24,7 @@ pipeline {
     }
     stage("stage 4") {
       steps {
-        echo "Random generated number from stage 2: ${params.randomNumber}"
+        echo "Random generated number from stage 2: ${RANDOM_NUMBER}"
       }
     }
   }
