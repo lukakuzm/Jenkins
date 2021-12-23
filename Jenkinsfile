@@ -36,7 +36,7 @@ def showFreeSpace() {
     $FreeDiskSpace = (Get-PSDrive -Name C | Select-Object -ExpandProperty free)/1073741824
     $FreeDiskSpaceRounded = [math]::Round($FreeDiskSpace,2)
     echo "Free space left (GB): $FreeDiskSpaceRounded"
-    Get-Location
+    (Get-Location).ToString()
   '''
   echo "${WORKSPACE}"
 }
