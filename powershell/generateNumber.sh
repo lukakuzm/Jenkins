@@ -1,1 +1,2 @@
-echo "Get-Random"
+$random = Get-Random
+echo "$random"
