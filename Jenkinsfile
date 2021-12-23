@@ -12,7 +12,9 @@ pipeline {
     stage("stage 2") {
       steps {
         script {
-           powershell('${params.randomNumber} = Get-Random')
+          env.Number = ''  
+          powershell('$env:Number = Get-Random')
+          echo "${env.Number}"
         } 
       }
     }
