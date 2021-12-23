@@ -1,6 +1,5 @@
 pipeline {
   agent any
-  options { timestamps(); timeout(time: 1, unit: 'MINUTES') }
   environment {
     RANDOM_NUMBER = 1
   }
@@ -13,14 +12,17 @@ pipeline {
     stage("stage 2") {
       steps {
         script {
-          //env.RANDOM_NUMBER = powershell('Get-Random')
-          RANDOM_NUMBER = 2
+          RANDOM_NUMBER = powershell('Get-Random')
         }
+        echo "Random generated number from stage 2: ${RANDOM_NUMBER}"
       }
     }
     stage("stage 3") {
       steps {
         echo 'stage 3'
+        script {
+          RANDOM_NUMBER = 2
+        }
       }
     }
     stage("stage 4") {
