@@ -10,7 +10,7 @@ pipeline {
       }
     }
     stage("stage 2") {
-      script {
+      steps {
         powershell 'Get-Random' 
       }
     }
