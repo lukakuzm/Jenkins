@@ -10,10 +10,14 @@ pipeline {
       }
     }
     stage("stage 2") {
-      steps {
-        script {
-          RANDOM_NUMBER = powershell('Get-Random')
-        }
+//       steps {
+//         script {
+//           RANDOM_NUMBER = powershell('Get-Random')
+//         }
+        powershell '''
+          $random = Get-Random
+          %RANDOM_NUMBER% = $random
+        '''
         echo "Random generated number from stage 2: ${RANDOM_NUMBER}"
       }
     }
