@@ -33,9 +33,7 @@ pipeline {
 
 def showFreeSpace() {
   powershell '''
-    $Location = (Get-Location).ToString()
-    $Location.Split(':')
-    $FreeDiskSpace = (Get-PSDrive -Name $Location[0] | Select-Object -ExpandProperty free)/1073741824
+    $FreeDiskSpace = (Get-PSDrive -Name (Get-Location).ToString().Split(':')[0] | Select-Object -ExpandProperty free)/1073741824
     $FreeDiskSpaceRounded = [math]::Round($FreeDiskSpace,2)
     echo "Free space left (GB): $FreeDiskSpaceRounded"\
   '''
