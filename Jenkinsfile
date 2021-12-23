@@ -12,7 +12,7 @@ pipeline {
     stage("stage 2") {
       steps {
         script {
-           params.randomNumber = powershell('Get-Random')
+           powershell('Get-Random')
         } 
       }
     }
