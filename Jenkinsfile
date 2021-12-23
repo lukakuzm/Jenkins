@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  options { timestamps(); timeout(time: 1, unit: 'MINUTES') }
   environment {
     RANDOM_NUMBER = 1
   }
