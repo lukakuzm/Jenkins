@@ -11,7 +11,7 @@ pipeline {
         script {
           env.RANDOM_NUMBER = powershell('Get-Random')
         }
-        sh 'echo $RANDOM_NUMBER'
+        echo "${env.RANDOM_NUMBER}"
       }
     }
     stage("stage 3") {
