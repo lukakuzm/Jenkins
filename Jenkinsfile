@@ -33,7 +33,7 @@ pipeline {
 
 def showFreeSpace(String a) {
   powershell '''
-    $FreeDiskSpace = Get-PSDrive -Name C | Select-Object -ExpandProperty Free
-    echo $FreeDiskSpace
+    $FreeDiskSpace = (Get-PSDrive -Name C | Select-Object -ExpandProperty free)/1073741824
+    echo "Free space left (GB): [math]::Round($FreeDiskSpace,2)"
   '''
 }
