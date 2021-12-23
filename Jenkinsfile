@@ -19,7 +19,7 @@ pipeline {
     stage("stage 3") {
       steps {
         script {
-          showFreeSpace(${JENKINS_HOME}/workspace/) 
+          showFreeSpace(${JENKINS_HOME}) 
         }
       }
     }
