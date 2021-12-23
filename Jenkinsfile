@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    def RANDOM_NUMBER = 1
+    RANDOM_NUMBER = 1
   }
   stages {
     stage("stage 1") {
@@ -19,7 +19,7 @@ pipeline {
 //           %RANDOM_NUMBER% = $random
 //         '''
         script {
-          env.RANDOM_NUMBER = powershell(returnStdout: true, script: 'Get-Random').trim()
+          RANDOM_NUMBER = powershell(returnStdout: true, script: 'Get-Random').trim()
         }
         echo "Random generated number from stage 2: ${RANDOM_NUMBER}"
       }
