@@ -11,17 +11,9 @@ pipeline {
     }
     stage("stage 2") {
       steps {
-//         script {
-//           RANDOM_NUMBER = powershell('Get-Random')
-//         }
-//         powershell '''
-//           $random = Get-Random
-//           %RANDOM_NUMBER% = $random
-//         '''
         script {
           RANDOM_NUMBER = powershell(returnStdout: true, script: 'Get-Random').trim()
         }
-        echo "Random generated number from stage 2: ${RANDOM_NUMBER}"
       }
     }
     stage("stage 3") {
