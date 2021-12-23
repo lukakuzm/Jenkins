@@ -32,5 +32,8 @@ pipeline {
 }
 
 def showFreeSpace(String a) {
-        echo a
+  powershell '''
+    $FreeDiskSpace = Get-PSDrive -Name C | Select-Object -ExpandProperty Free
+    echo $FreeDiskSpace
+  '''
 }
