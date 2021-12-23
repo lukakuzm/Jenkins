@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    RANDOM_NUMBER = '1'
+    RANDOM_NUMBER = 1
   }
   stages {
     stage("stage 1") {
@@ -23,7 +23,7 @@ pipeline {
     }
     stage("stage 4") {
       steps {
-        echo "Random generated number from stage 2: ${RANDOM_NUMBER}"
+        echo "Random generated number from stage 2: ${env.RANDOM_NUMBER}"
       }
     }
   }
