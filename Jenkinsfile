@@ -10,8 +10,8 @@ pipeline {
       }
     }
     stage("stage 2") {
-      steps {
-        sh './powershell/generateNumber.sh'
+      node {
+        powershell 'Get-Random' 
       }
     }
     stage("stage 3") {
