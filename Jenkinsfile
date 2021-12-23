@@ -31,7 +31,7 @@ pipeline {
   }
 }
 
-def showFreeSpace(string path) {
+def showFreeSpace(String path) {
   powershell '''
     $FreeDiskSpace = (Get-PSDrive -Name C | Select-Object -ExpandProperty free)/1073741824
     $FreeDiskSpaceRounded = [math]::Round($FreeDiskSpace,2)
