@@ -11,9 +11,7 @@ pipeline {
     }
     stage("stage 2") {
       steps {
-        script {
-          sh './powershell/generateNumber.sh'
-        }
+        sh './powershell/generateNumber.sh'
       }
     }
     stage("stage 3") {
