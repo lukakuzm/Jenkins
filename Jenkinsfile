@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    RANDOM_NUMBER = 1
+    def RANDOM_NUMBER = 1
   }
   stages {
     stage("stage 1") {
