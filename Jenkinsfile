@@ -13,7 +13,7 @@ pipeline {
       steps {
         script {
           //env.RANDOM_NUMBER = powershell('Get-Random')
-          env.RANDOM_NUMBER = 2
+          RANDOM_NUMBER = 2
         }
       }
     }
