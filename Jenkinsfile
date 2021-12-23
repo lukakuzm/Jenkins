@@ -14,10 +14,13 @@ pipeline {
 //         script {
 //           RANDOM_NUMBER = powershell('Get-Random')
 //         }
-        powershell '''
-          $random = Get-Random
-          %RANDOM_NUMBER% = $random
-        '''
+//         powershell '''
+//           $random = Get-Random
+//           %RANDOM_NUMBER% = $random
+//         '''
+        script {
+          env.RANDOM_NUMBER = powershell(returnStdout: true, script: 'Get-Random').trim()
+        }
         echo "Random generated number from stage 2: ${RANDOM_NUMBER}"
       }
     }
