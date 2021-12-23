@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  parameters {
+    string(name: 'randomNumber', defaultValue: '', description: 'random generated number')
+  }
   stages {
     stage("stage 1") {
       steps {
@@ -8,7 +11,9 @@ pipeline {
     }
     stage("stage 2") {
       steps {
-        echo 'stage 2'
+        script {
+          sh 'echo "Get-Random"'
+        }
       }
     }
     stage("stage 3") {
