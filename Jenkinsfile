@@ -19,7 +19,7 @@ pipeline {
     stage("stage 3") {
       steps {
         script {
-          showFreeSpace('aaa') 
+          showFreeSpace(${JENKINS_HOME}/workspace/) 
         }
       }
     }
@@ -31,10 +31,11 @@ pipeline {
   }
 }
 
-def showFreeSpace(String a) {
+def showFreeSpace(string path) {
   powershell '''
     $FreeDiskSpace = (Get-PSDrive -Name C | Select-Object -ExpandProperty free)/1073741824
     $FreeDiskSpaceRounded = [math]::Round($FreeDiskSpace,2)
     echo "Free space left (GB): $FreeDiskSpaceRounded"
+    echo path
   '''
 }
